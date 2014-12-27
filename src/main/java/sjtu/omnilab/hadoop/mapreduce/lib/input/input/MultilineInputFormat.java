@@ -1,4 +1,4 @@
-package sjtu.omnilab.mr.input;
+package sjtu.omnilab.hadoop.mapreduce.lib.input.input;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -23,12 +23,6 @@ import org.apache.hadoop.mapreduce.lib.input.FileSplit;
 import org.apache.hadoop.util.LineReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-
-class SplitableLocation {
-	public boolean lSplitable = false;
-	public boolean rSplitable = false;
-}
 
 
 /**

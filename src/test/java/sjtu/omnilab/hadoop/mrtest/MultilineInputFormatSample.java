@@ -1,4 +1,4 @@
-package sjtu.omnilab.mr.samples;
+package sjtu.omnilab.hadoop.mrtest;
 
 
 import java.io.IOException;
@@ -18,8 +18,8 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
-import sjtu.omnilab.mr.input.MultilineInputFormat;
-import sjtu.omnilab.mr.input.TextArrayWritable;
+import sjtu.omnilab.hadoop.mapreduce.lib.input.input.MultilineInputFormat;
+import sjtu.omnilab.hadoop.mapreduce.lib.input.input.TextArrayWritable;
 
 public final class MultilineInputFormatSample extends Configured implements Tool {
 	

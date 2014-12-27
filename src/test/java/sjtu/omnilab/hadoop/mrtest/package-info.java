@@ -5,4 +5,4 @@
  * @author chenxm
  *
  */
-package sjtu.omnilab.mr.samples;
+package sjtu.omnilab.hadoop.mrtest;
