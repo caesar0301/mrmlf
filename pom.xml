@@ -2,8 +2,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>omnilab.sjtu</groupId>
-	<artifactId>hadoop-mr-multiline</artifactId>
-	<version>0.1alpha</version>
+	<artifactId>mrmlf</artifactId>
+	<version>0.1.1</version>
 	<description>Multiple line input format for hadoop.</description>
 
 	<properties>
