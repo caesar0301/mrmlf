@@ -18,8 +18,8 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
-import sjtu.omnilab.hadoop.mapreduce.lib.input.input.MultilineInputFormat;
-import sjtu.omnilab.hadoop.mapreduce.lib.input.input.TextArrayWritable;
+import sjtu.omnilab.hadoop.mapreduce.lib.input.MultilineInputFormat;
+import sjtu.omnilab.hadoop.mapreduce.lib.input.TextArrayWritable;
 
 public final class MultilineInputFormatSample extends Configured implements Tool {
 	

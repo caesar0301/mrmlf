@@ -1,4 +1,4 @@
-package sjtu.omnilab.hadoop.mapreduce.lib.input.input;
+package sjtu.omnilab.hadoop.mapreduce.lib.input;
 
 import java.io.IOException;
 import java.util.ArrayList;
