@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Mrmlf by caesar0301</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Mrmlf</h1>
+        <p>MultilineInputFormat (MLF) for hadoop MapReduce (v2).</p>
+
+        <p class="view"><a href="https://github.com/caesar0301/mrmlf">View the Project on GitHub <small>caesar0301/mrmlf</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/caesar0301/mrmlf/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/caesar0301/mrmlf/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/caesar0301/mrmlf">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="about-mrmlf" class="anchor" href="#about-mrmlf" aria-hidden="true"><span class="octicon octicon-link"></span></a>About mrmlf</h1>
+
+<p>This library provides an extended input format, namely <strong>MultilineInputFormat</strong>
+based on new interfaces of Hadoop Mapreduce.</p>
+
+<h2>
+<a id="data-target" class="anchor" href="#data-target" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Target</h2>
+
+<p>Basically, default input formats in Hadoop are based on line-specific text
+files or separater-aware binary formats (e.g., SequenceFile or avro format).
+One of important data formats in real world is in the <strong>multiple-line form</strong>
+where one integrated record is split into multiple natural lines (separated by
+<code>\r</code> or <code>\n</code>). For exmpale, the music CD meta data in the illustrating program:</p>
+
+<pre><code>&lt;CD&gt;
+    &lt;TITLE&gt;Empire Burlesque&lt;/TITLE&gt;
+    &lt;ARTIST&gt;Bob Dylan&lt;/ARTIST&gt;
+    &lt;COUNTRY&gt;USA&lt;/COUNTRY&gt;
+    &lt;COMPANY&gt;Columbia&lt;/COMPANY&gt;
+    &lt;PRICE&gt;10.90&lt;/PRICE&gt;
+    &lt;YEAR&gt;1985&lt;/YEAR&gt;
+&lt;/CD&gt;
+&lt;CD&gt;
+    &lt;TITLE&gt;Hide your heart&lt;/TITLE&gt;
+    &lt;ARTIST&gt;Bonnie Tyler&lt;/ARTIST&gt;
+    &lt;COUNTRY&gt;UK&lt;/COUNTRY&gt;
+    &lt;COMPANY&gt;CBS Records&lt;/COMPANY&gt;
+    &lt;PRICE&gt;9.90&lt;/PRICE&gt;
+    &lt;YEAR&gt;1988&lt;/YEAR&gt;
+&lt;/CD&gt;
+</code></pre>
+
+<p>This library manipulates the problem of this kind of data, and restores the
+multiple-line content as a unified record for mapreduce programs. That is, the
+CD metadata in the above example will be converted into two records.</p>
+
+<h2>
+<a id="programming-integration" class="anchor" href="#programming-integration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Programming Integration</h2>
+
+<p>You can use this extended file input format as the way invoking other default
+formats. Here we give a minimum configuration in MR program. The complete
+sample source code is located at
+<code>sjtu.omnilab.hadoop.mrtest.MultilineInputFormatSample.java</code> of the library.</p>
+
+<pre><code>public final class MultilineInputFormatSample extends Configured {
+
+    @Override
+    public int run(String[] args) throws Exception {
+        // Create a new MR job configuration
+        job = ...
+
+        // Invoke MLF class
+        job.setInputFormatClass(MultilineInputFormat.class);
+        MultilineInputFormat.setMultilineStartString(job, "&lt;CD&gt;");
+        MultilineInputFormat.setMultilineEndString(job, "&lt;/CD&gt;");
+
+        // Set map output KV classes
+        job.setMapOutputKeyClass(LongWritable.class);
+        job.setMapOutputValueClass(TextArrayWritable.class);
+        ...
+    }
+}
+</code></pre>
+
+<h2>
+<a id="more-about-record-separation" class="anchor" href="#more-about-record-separation" aria-hidden="true"><span class="octicon octicon-link"></span></a>More about Record Separation</h2>
+
+<p>There are two principle methods to determine the behavior of MLF, i.e.,
+<code>MultilineInputFormat.setMultilineStartString</code> and
+<code>MultilineInputFormat.setMultilineEndString</code>. The former tells the library
+where the record beginning is and latter the record ending.</p>
+
+<p><strong>Note:</strong> Both methods are on the basis of natural lines and determine whether
+  to split or not by matching the first characters in each line (including
+  spacing characters like whitespaces and tabs).</p>
+
+<h2>
+<a id="contact" class="anchor" href="#contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contact</h2>
+
+<p>© Xiaming Chen -- <a href="mailto:chenxm35@gmail.com">chenxm35@gmail.com</a></p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/caesar0301">caesar0301</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
