@@ -1,4 +1,4 @@
-package sjtu.omnilab.hadoop.mapreduce.lib.input;
+package cn.edu.sjtu.omnilab.mrmlf;
 
 import org.apache.hadoop.io.ArrayWritable;
 import org.apache.hadoop.io.Text;

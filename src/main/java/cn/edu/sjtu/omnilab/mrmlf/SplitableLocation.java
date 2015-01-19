@@ -1,4 +1,4 @@
-package sjtu.omnilab.hadoop.mapreduce.lib.input;
+package cn.edu.sjtu.omnilab.mrmlf;
 
 public class SplitableLocation {
     public boolean lSplitable = false;
