@@ -31,7 +31,6 @@
         <connection>scm:git:git@github.com:caesar0301/mrmlf.git</connection>
         <developerConnection>scm:git:git@github.com:caesar0301/mrmlf.git</developerConnection>
         <url>git@github.com:caesar0301/mrmlf.git</url>
-        <tag>mrmlf-0.1.1</tag>
     </scm>
 
     <distributionManagement>
