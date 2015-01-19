@@ -32,6 +32,7 @@
         <connection>scm:git:git@github.com:caesar0301/mrmlf.git</connection>
         <developerConnection>scm:git:git@github.com:caesar0301/mrmlf.git</developerConnection>
         <url>git@github.com:caesar0301/mrmlf.git</url>
+        <tag>${project.artifactId}-${project.version}</tag>
     </scm>
 
     <distributionManagement>
