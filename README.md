@@ -77,3 +77,8 @@ Contact
 -------
 
 © Xiaming Chen -- chenxm35@gmail.com
+
+License
+-------
+
+Apache License v2
