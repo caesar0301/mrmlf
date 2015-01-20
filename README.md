@@ -4,6 +4,18 @@ About mrmlf
 This library provides an extended input format, namely **MultilineInputFormat**
 based on new interfaces of Hadoop Mapreduce.
 
+HowToUse
+--------
+
+You can find the latest version on [Maven Central Repository](https://search.maven.org/#search|ga|1|cn.edu.sjtu.omnilab), and use this library
+in your project by adding dependency in `pom.xml`:
+
+    <dependency>
+      <groupId>cn.edu.sjtu.omnilab</groupId>
+      <artifactId>mrmlf</artifactId>
+      <version>0.1.2</version>
+    </dependency>
+
 Data Target
 -----------
 
@@ -64,10 +76,13 @@ sample source code is located at
 More about Record Separation
 ----------------------------
 
-There are two principle methods to determine the behavior of MLF, i.e.,
-`MultilineInputFormat.setMultilineStartString` and
-`MultilineInputFormat.setMultilineEndString`. The former tells the library
-where the record beginning is and latter the record ending.
+There are two principle methods to determine the behavior of MLF:
+
+* `MultilineInputFormat.setMultilineStartString`
+* `MultilineInputFormat.setMultilineEndString`
+
+The former tells the library where the record begins and
+the latter the end of record.
 
 **Note:** Both methods are on the basis of natural lines and determine whether
   to split or not by matching the first characters in each line (including
